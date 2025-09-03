@@ -9,7 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     overflow-x: hidden;
 }
 
@@ -27,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 30%, #dee2e6 70%, #ced4da 100%);
     text-align: center;
     overflow: hidden;
 }
@@ -44,7 +44,7 @@ body {
 
 .floating-hearts i {
     position: absolute;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(108, 117, 125, 0.4);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -53,6 +53,29 @@ body {
 .heart3 { top: 30%; left: 70%; animation-delay: 2s; font-size: 18px; }
 .heart4 { top: 80%; left: 20%; animation-delay: 3s; font-size: 22px; }
 .heart5 { top: 10%; left: 60%; animation-delay: 4s; font-size: 24px; }
+
+.floating-number {
+    position: absolute;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: rgba(73, 80, 87, 0.6);
+    animation: float 8s ease-in-out infinite;
+    text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8);
+}
+
+.age-23 { 
+    top: 15%; 
+    right: 15%; 
+    font-size: 3rem; 
+    animation-delay: 2s; 
+}
+
+.age-23-2 { 
+    bottom: 25%; 
+    left: 5%; 
+    font-size: 2.5rem; 
+    animation-delay: 5s; 
+}
 
 @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -77,34 +100,60 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(1.8rem, 6vw, 3.5rem);
     font-weight: 600;
-    color: #ff69b4;
+    color: #495057;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8);
     animation: glow 2s ease-in-out infinite alternate;
 }
 
+.age-highlight {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, rgba(73, 80, 87, 0.8), rgba(108, 117, 125, 0.8));
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid rgba(248, 249, 250, 0.9);
+    display: inline-block;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(108, 117, 125, 0.2);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(108, 117, 125, 0.4);
+    }
+}
+
 @keyframes glow {
-    0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 10px rgba(255, 105, 180, 0.3); }
-    100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 20px rgba(255, 105, 180, 0.6); }
+    0% { text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8), 0 0 8px rgba(108, 117, 125, 0.3); }
+    100% { text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8), 0 0 15px rgba(108, 117, 125, 0.5); }
 }
 
 .birthday-text {
     display: block;
-    color: #ff6b6b;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: #6c757d;
+    text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8);
 }
 
 .and-text {
     display: block;
-    color: #4ecdc4;
+    color: #adb5bd;
     font-size: 0.6em;
     margin: 10px 0;
 }
 
 .engagement-text {
     display: block;
-    color: #45b7d1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: #868e96;
+    text-shadow: 1px 1px 2px rgba(248, 249, 250, 0.8);
 }
 
 .date-text {
@@ -116,7 +165,7 @@ body {
 
 .heart-icon {
     font-size: 3rem;
-    color: #ff6b6b;
+    color: #6c757d;
     animation: heartbeat 1.5s ease-in-out infinite;
 }
 
@@ -128,7 +177,7 @@ body {
 /* Message Section */
 .message-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
 }
 
 .message-card {
@@ -148,7 +197,7 @@ body {
 
 .card-header i {
     font-size: 2.5rem;
-    color: #ff6b6b;
+    color: #6c757d;
     margin-bottom: 15px;
 }
 
@@ -177,7 +226,7 @@ body {
 }
 
 .love-quote i {
-    color: #ff6b6b;
+    color: #495057;
     font-size: 1.2rem;
     margin: 0 10px;
 }
@@ -185,7 +234,7 @@ body {
 /* Memories Section */
 .memories-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
 }
 
 .section-title {
@@ -209,7 +258,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #ff6b6b;
+    background: #6c757d;
     transform: translateX(-50%);
 }
 
@@ -231,7 +280,7 @@ body {
 .timeline-icon {
     width: 60px;
     height: 60px;
-    background: #ff6b6b;
+    background: #495057;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -266,14 +315,14 @@ body {
 /* Interactive Section */
 .interactive-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 50%, #ced4da 100%);
     text-align: center;
 }
 
 /* Wishes Section */
 .wishes-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #e3ffe7 0%, #d9e7ff 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
 }
 
 .wishes-grid {
@@ -299,7 +348,7 @@ body {
 
 .wish-card i {
     font-size: 2.5rem;
-    color: #ff6b6b;
+    color: #6c757d;
     margin-bottom: 20px;
 }
 
@@ -318,7 +367,7 @@ body {
 /* Footer */
 .footer {
     padding: 60px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #495057 0%, #6c757d 50%, #868e96 100%);
     text-align: center;
     color: white;
 }
@@ -332,7 +381,7 @@ body {
 .footer-hearts i {
     font-size: 1.5rem;
     margin: 0 10px;
-    color: #ff6b6b;
+    color: #f8f9fa;
     animation: heartbeat 2s ease-in-out infinite;
 }
 
