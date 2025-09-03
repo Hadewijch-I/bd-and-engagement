@@ -43,38 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 2000);
 });
 
-// Blow candle function
-function blowCandle() {
-    const flame = document.querySelector('.flame');
-    const button = document.querySelector('.blow-candle-btn');
-    
-    if (flame && !flame.classList.contains('blown')) {
-        // Blow out the candle
-        flame.classList.add('blown');
-        button.innerHTML = '<i class="fas fa-star"></i> Make another wish!';
-        button.style.background = 'linear-gradient(45deg, #4ecdc4, #44a08d)';
-        
-        // Show fireworks
-        createFireworks();
-        
-        // Show celebration message
-        showBirthdayMessage();
-        
-        // Add celebration class to cake
-        document.querySelector('.cake').classList.add('celebration');
-        
-        setTimeout(() => {
-            document.querySelector('.cake').classList.remove('celebration');
-        }, 600);
-        
-    } else if (flame && flame.classList.contains('blown')) {
-        // Relight the candle
-        flame.classList.remove('blown');
-        button.innerHTML = '<i class="fas fa-wind"></i> Make a wish and blow the candle!';
-        button.style.background = 'linear-gradient(45deg, #ff6b6b, #ff8e8e)';
-    }
-}
-
 // Create fireworks animation
 function createFireworks() {
     const fireworksContainer = document.getElementById('fireworks');
