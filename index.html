@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Meta tag to help with GitHub Pages caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
     <!-- Loading Overlay -->
@@ -236,8 +241,35 @@
         <!-- Fireworks Animation -->
         <div class="fireworks-container" id="fireworks"></div>
     </div>
-
+    
+    <!-- Network Status Indicator for GitHub Pages -->
+    <div id="network-status" class="network-status">
+        <i class="fas fa-wifi"></i>
+        <span>Offline Mode</span>
+    </div>
+    
     <script src="time-sync.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Add this script tag at the end of the body to detect network issues -->
+    <script>
+        // Simple network status detection
+        function updateNetworkStatus() {
+            const statusElement = document.getElementById('network-status');
+            if (!statusElement) return;
+            
+            if (navigator.onLine) {
+                statusElement.classList.remove('offline');
+            } else {
+                statusElement.classList.add('offline');
+                console.warn('Browser is offline, countdown may not be accurate');
+            }
+        }
+        
+        // Check network status initially and on changes
+        updateNetworkStatus();
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+    </script>
 </body>
 </html>

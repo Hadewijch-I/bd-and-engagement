@@ -4,14 +4,27 @@
 let timeSync;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize time synchronization
-    timeSync = new TimeSync({
-        onSyncComplete: function(data) {
-            console.log('Time synchronized with offset:', data.offset);
-            // Check celebration date after time sync
-            checkCelebrationDate();
-        }
-    }).start();
+    // Initialize time synchronization with fallback mechanisms for GitHub Pages
+    try {
+        timeSync = new TimeSync({
+            onSyncComplete: function(data) {
+                console.log('Time synchronized with offset:', data.offset);
+                // Check celebration date after time sync
+                checkCelebrationDate();
+                
+                // Update countdown immediately after sync
+                updateCountdown();
+            }
+        }).start();
+    } catch (e) {
+        console.error('Error initializing TimeSync:', e);
+        // Create a dummy TimeSync object as fallback
+        timeSync = {
+            getTimeRemaining: function(targetDate) {
+                return Math.max(0, targetDate - Date.now());
+            }
+        };
+    }
 
     // Handle loading screen
     window.addEventListener('load', function() {
@@ -29,18 +42,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1500);
     });
     
-    // Initial countdown update
+    // Initial countdown update - make sure this runs regardless of TimeSync status
     updateCountdown();
     
     // Set up regular interval for countdown (every second)
-    setInterval(updateCountdown, 1000);
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    
+    // Ensure the interval keeps running even if there are errors
+    window.addEventListener('error', function(e) {
+        if (!countdownInterval) {
+            console.log('Restarting countdown interval after error');
+            setInterval(updateCountdown, 1000);
+        }
+    });
     
     // Set up the interval to check the date
     setInterval(checkCelebrationDate, 1000);
 });
 
 // Target date: September 5th, 2025 at 00:00:00
-const TARGET_DATE = new Date('September 4, 2025 20:10:51').getTime();
+const TARGET_DATE = new Date('September 4, 2025 20:20:51').getTime();
 
 // Check if we've reached the celebration date
 function checkCelebrationDate() {
@@ -85,57 +106,69 @@ function checkCelebrationDate() {
 
 // Update the countdown timer
 function updateCountdown() {
-    // Use the synchronized time
-    const timeRemaining = timeSync ? 
-        timeSync.getTimeRemaining(TARGET_DATE) : 
-        Math.max(0, TARGET_DATE - Date.now());
-    
-    // If we've passed the target date
-    if (timeRemaining <= 0) {
-        document.getElementById('pre-days').textContent = '00';
-        document.getElementById('pre-hours').textContent = '00';
-        document.getElementById('pre-minutes').textContent = '00';
-        document.getElementById('pre-seconds').textContent = '00';
-        return;
-    }
-    
-    // Calculate time units
-    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-    
-    // Update countdown display
-    document.getElementById('pre-days').textContent = days.toString().padStart(2, '0');
-    document.getElementById('pre-hours').textContent = hours.toString().padStart(2, '0');
-    document.getElementById('pre-minutes').textContent = minutes.toString().padStart(2, '0');
-    document.getElementById('pre-seconds').textContent = seconds.toString().padStart(2, '0');
-    
-    // Calculate and display remaining time in a more readable format
-    const remainingTimeElement = document.getElementById('remaining-time-display');
-    if (remainingTimeElement) {
-        let timeDisplay = '';
+    try {
+        // Use the synchronized time with fallback to local time
+        const timeRemaining = (timeSync && typeof timeSync.getTimeRemaining === 'function') ? 
+            timeSync.getTimeRemaining(TARGET_DATE) : 
+            Math.max(0, TARGET_DATE - Date.now());
         
-        if (days > 0) {
-            timeDisplay += `${days} day${days !== 1 ? 's' : ''}, `;
+        // If we've passed the target date
+        if (timeRemaining <= 0) {
+            document.getElementById('pre-days').textContent = '00';
+            document.getElementById('pre-hours').textContent = '00';
+            document.getElementById('pre-minutes').textContent = '00';
+            document.getElementById('pre-seconds').textContent = '00';
+            return;
         }
         
-        if (days > 0 || hours > 0) {
-            timeDisplay += `${hours} hour${hours !== 1 ? 's' : ''}, `;
+        // Calculate time units
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        
+        // Make sure all DOM elements exist before accessing them
+        const preDaysElement = document.getElementById('pre-days');
+        const preHoursElement = document.getElementById('pre-hours');
+        const preMinutesElement = document.getElementById('pre-minutes');
+        const preSecondsElement = document.getElementById('pre-seconds');
+        
+        // Only update if elements exist
+        if (preDaysElement && preHoursElement && preMinutesElement && preSecondsElement) {
+            preDaysElement.textContent = days.toString().padStart(2, '0');
+            preHoursElement.textContent = hours.toString().padStart(2, '0');
+            preMinutesElement.textContent = minutes.toString().padStart(2, '0');
+            preSecondsElement.textContent = seconds.toString().padStart(2, '0');
         }
         
-        if (days > 0 || hours > 0 || minutes > 0) {
-            timeDisplay += `${minutes} minute${minutes !== 1 ? 's' : ''}, `;
+        // Calculate and display remaining time in a more readable format
+        const remainingTimeElement = document.getElementById('remaining-time-display');
+        if (remainingTimeElement) {
+            let timeDisplay = '';
+            
+            if (days > 0) {
+                timeDisplay += `${days} day${days !== 1 ? 's' : ''}, `;
+            }
+            
+            if (days > 0 || hours > 0) {
+                timeDisplay += `${hours} hour${hours !== 1 ? 's' : ''}, `;
+            }
+            
+            if (days > 0 || hours > 0 || minutes > 0) {
+                timeDisplay += `${minutes} minute${minutes !== 1 ? 's' : ''}, `;
+            }
+            
+            timeDisplay += `${seconds} second${seconds !== 1 ? 's' : ''}`;
+            
+            remainingTimeElement.textContent = timeDisplay;
         }
         
-        timeDisplay += `${seconds} second${seconds !== 1 ? 's' : ''}`;
-        
-        remainingTimeElement.textContent = timeDisplay;
-    }
-    
-    // If we're close to the celebration time (within the last hour), check more frequently
-    if (timeRemaining < 60 * 60 * 1000) {
-        checkCelebrationDate();
+        // If we're close to the celebration time (within the last hour), check more frequently
+        if (timeRemaining < 60 * 60 * 1000) {
+            checkCelebrationDate();
+        }
+    } catch (e) {
+        console.error('Error in updateCountdown:', e);
     }
 }
 
