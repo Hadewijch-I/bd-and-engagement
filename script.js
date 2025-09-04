@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Target date: September 5th, 2025 at 00:00:00
-const TARGET_DATE = new Date('September 4, 2025 20:20:51').getTime();
+const TARGET_DATE = new Date('September 5, 2025 00:00:00').getTime();
 
 // Check if we've reached the celebration date
 function checkCelebrationDate() {
