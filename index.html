@@ -9,160 +9,235 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section -->
-        <header class="hero-section">
-            <div class="floating-hearts">
-                <i class="fas fa-heart heart1"></i>
-                <i class="fas fa-heart heart2"></i>
-                <i class="fas fa-heart heart3"></i>
-                <i class="fas fa-heart heart4"></i>
-                <i class="fas fa-heart heart5"></i>
-                <span class="floating-number age-23">23</span>
-                <span class="floating-number age-23-2">23</span>
-            </div>
-            
-            <div class="hero-content">
-                <h1 class="main-title">
-                    <span class="birthday-text">Happy 23rd Birthday</span>
-                    <span class="and-text">&</span>
-                    <span class="engagement-text">Engagement Day</span>
-                </h1>
-                <h2 class="name-subtitle">Beautiful Siham</h2>
-                <p class="date-text">September 5th, 2025</p>
-                <div class="age-highlight">✨ 23 Years of Amazing ✨</div>
-                <div class="heart-icon">
-                    <i class="fas fa-heart"></i>
-                </div>
-            </div>
-        </header>
-
-        <!-- Message Section -->
-        <section class="message-section">
-            <div class="message-card">
-                <div class="card-header">
-                    <i class="fas fa-ring"></i>
-                    <h2>To Beautiful Siham</h2>
-                </div>
-                <div class="card-content">
-                    <p class="message-text">
-                        Today marks your 23rd year of bringing beauty and joy to this world, and the day we make our love 
-                        official in front of our families! At 23, you shine brighter than ever, and you bring joy, love, and light into my world 
-                        every single day. Happy 23rd Birthday, dear Siham, and congratulations on our engagement day!
-                    </p>
-                    <div class="love-quote">
-                        <i class="fas fa-quote-left"></i>
-                        <span>"Every love story is beautiful, but ours is my favorite."</span>
-                        <i class="fas fa-quote-right"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Memories Section -->
-        <section class="memories-section">
-            <h2 class="section-title">Our Beautiful Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>First Text Message</h3>
-                        <p>July 27th - The day she first reached out on WhatsApp and our beautiful story began</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>First Meeting with Family</h3>
-                        <p>August 17th - When we first met in the presence of our families</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Our First Time Alone</h3>
-                        <p>August 18th - When we got to know each other personally</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-birthday-cake"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Siham Turns 23</h3>
-                        <p>September 5th - Celebrating 23 years of your beautiful soul</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-ring"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Our Engagement Day</h3>
-                        <p>September 5th - The day we make it official with our families</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <h3>Forever</h3>
-                        <p>Our journey continues with endless love</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Wishes Section -->
-        <section class="wishes-section">
-            <h2 class="section-title">Wishes for Siham</h2>
-            <div class="wishes-grid">
-                <div class="wish-card">
-                    <i class="fas fa-star"></i>
-                    <h3>Health & Happiness</h3>
-                    <p>May you be blessed with perfect health and endless happiness</p>
-                </div>
-                <div class="wish-card">
-                    <i class="fas fa-sun"></i>
-                    <h3>Bright Future</h3>
-                    <p>May every day bring new opportunities and beautiful moments</p>
-                </div>
-                <div class="wish-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Endless Love</h3>
-                    <p>May our love grow stronger with each passing day</p>
-                </div>
-                <div class="wish-card">
-                    <i class="fas fa-gift"></i>
-                    <h3>Dreams Come True</h3>
-                    <p>May all your dreams and aspirations become reality</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p>Developed for beloved Siham, with all my love, always and forever </p>
-                <div class="footer-hearts">
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-heart"></i>
-                    <i class="fas fa-heart"></i>
-                </div>
-            </div>
-        </footer>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-heart heart-spinner"></i>
+        </div>
+        <p>Loading our special memories...</p>
     </div>
 
-    <!-- Fireworks Animation -->
-    <div class="fireworks-container" id="fireworks"></div>
+    <!-- Pre-Celebration Countdown Section -->
+    <div id="pre-celebration-section" class="pre-celebration-container">
+        <div class="pre-celebration-content">
+            <h1 class="pre-title">Siham's Special Day</h1>
+            <p class="pre-subtitle">The celebration begins on September 5th, 2025</p>
+            
+            <div class="countdown-container large-countdown">
+                <div class="countdown-item">
+                    <span id="pre-days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="pre-hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="pre-minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="pre-seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div class="remaining-time">
+                <p>Time remaining: <span id="remaining-time-display">Loading...</span></p>
+            </div>
+            
+            <div class="pre-message">
+                <p>Please come back on September 5th to celebrate Siham's 23rd birthday and our engagement day!</p>
+                <div class="pre-hearts">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Main Celebration Content (Initially Hidden) -->
+    <div id="celebration-content" class="hidden-content">
+        <div class="container">
+            <!-- Header Section -->
+            <header class="hero-section">
+                <div class="floating-hearts">
+                    <i class="fas fa-heart heart1"></i>
+                    <i class="fas fa-heart heart2"></i>
+                    <i class="fas fa-heart heart3"></i>
+                    <i class="fas fa-heart heart4"></i>
+                    <i class="fas fa-heart heart5"></i>
+                    <span class="floating-number age-23">23</span>
+                    <span class="floating-number age-23-2">23</span>
+                </div>
+                
+                <div class="hero-content">
+                    <h1 class="main-title">
+                        <span class="birthday-text">Happy 23rd Birthday</span>
+                        <span class="and-text">&</span>
+                        <span class="engagement-text">Engagement Day</span>
+                    </h1>
+                    <h2 class="name-subtitle">Beautiful Siham</h2>
+                    <p class="date-text">September 5th, 2025</p>
+                    
+                    <!-- Countdown Timer -->
+                    <div id="countdown-timer" class="countdown-container">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                    
+                    <div class="age-highlight">✨ 23 Years of Amazing ✨</div>
+                    <div class="heart-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Message Section -->
+            <section class="message-section">
+                <div class="message-card">
+                    <div class="card-header">
+                        <i class="fas fa-ring"></i>
+                        <h2>To Beautiful Siham</h2>
+                    </div>
+                    <div class="card-content">
+                        <p class="message-text">
+                            Today marks your 23rd year of bringing beauty and joy to this world, and the day we make our love 
+                            official in front of our families! At 23, you shine brighter than ever, and you bring joy, love, and light into my world 
+                            every single day. Happy 23rd Birthday, dear Siham, and congratulations on our engagement day!
+                        </p>
+                        <div class="love-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <span>"Every love story is beautiful, but ours is my favorite."</span>
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Memories Section -->
+            <section class="memories-section">
+                <h2 class="section-title">Our Beautiful Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>First Text Message</h3>
+                            <p>July 27th - The day she first reached out on WhatsApp and our beautiful story began</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>First Meeting with Family</h3>
+                            <p>August 17th - When we first met in the presence of our families</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Our First Time Alone</h3>
+                            <p>August 18th - When we got to know each other personally</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Siham Turns 23</h3>
+                            <p>September 5th - Celebrating 23 years of your beautiful soul</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Our Engagement Day</h3>
+                            <p>September 5th - The day we make it official with our families</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Forever</h3>
+                            <p>Our journey continues with endless love</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Wishes Section -->
+            <section class="wishes-section">
+                <h2 class="section-title">Wishes for Siham</h2>
+                <div class="wishes-grid">
+                    <div class="wish-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Health & Happiness</h3>
+                        <p>May you be blessed with perfect health and endless happiness</p>
+                    </div>
+                    <div class="wish-card">
+                        <i class="fas fa-sun"></i>
+                        <h3>Bright Future</h3>
+                        <p>May every day bring new opportunities and beautiful moments</p>
+                    </div>
+                    <div class="wish-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Endless Love</h3>
+                        <p>May our love grow stronger with each passing day</p>
+                    </div>
+                    <div class="wish-card">
+                        <i class="fas fa-gift"></i>
+                        <h3>Dreams Come True</h3>
+                        <p>May all your dreams and aspirations become reality</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Developed for beloved Siham, with all my love, always and forever </p>
+                    <div class="footer-hearts">
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="footer-nav">
+                        <a href="#" class="back-to-top" aria-label="Back to top">
+                            <i class="fas fa-arrow-up"></i> Back to Top
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Fireworks Animation -->
+        <div class="fireworks-container" id="fireworks"></div>
+    </div>
+
+    <script src="time-sync.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
